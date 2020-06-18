@@ -58,6 +58,7 @@ menus : [
   { icon: 'mdi-apps', title: 'Patients',to: '/patient' },
   { icon: 'mdi-apps', title: 'Users',to: '/user' },
   { icon: 'mdi-apps', title: 'Doctors',to: '/doctor' },
+  { icon: 'mdi-apps', title: 'Followups',to: '/followup' },
 ],      
 
 miniVariant: false,

@@ -27,19 +27,25 @@
               <v-container>
                 <v-row>
                  
-                 <v-col cols="12" sm="12" md="12">
+                 <v-col cols="6" sm="6" md="6">
                     <v-text-field v-model="editedItem.name" label="Name"></v-text-field>
                   </v-col>
 
-                  <v-col cols="12" sm="12" md="12">
+                  <v-col cols="6" sm="6" md="6">
                     <v-text-field v-model="editedItem.email" label="Email"></v-text-field>
                   </v-col>
 
-                  <v-col cols="12" sm="12" md="12">
+                  <v-col cols="6" sm="6" md="6">
                     <v-text-field v-model="editedItem.mobile_no" label="Mobile No"></v-text-field>
                   </v-col>
                   
+                  <v-col cols="6" sm="6" md="6">
+                    <v-text-field v-model="editedItem.pmdc_no" label="PMDC No"></v-text-field>
+                  </v-col>
                   <v-col cols="12" sm="12" md="12">
+                    <v-text-field v-model="editedItem.clinic" label="Clinic"></v-text-field>
+                  </v-col>
+                  <v-col cols="6" sm="6" md="6">
                     <v-select
                         v-model="editedItem.district_id"
                         :items="district"
@@ -48,7 +54,7 @@
                         label="District"
                         ></v-select>
                   </v-col>
-                  <v-col cols="12" sm="12" md="12">
+                  <v-col cols="6" sm="6" md="6">
                     <v-select
                         v-model="editedItem.status_id"
                         :items="status"
@@ -109,9 +115,14 @@
           value: 'name',
         },
         {
-          text: 'Email',
+          text: 'Clinic',
           sortable: false,
-          value: 'email',
+          value: 'clinic',
+        },
+        {
+          text: 'PMDC No',
+          sortable: false,
+          value: 'pmdc_no',
         },
         {
           text: 'Mobile No',
@@ -139,6 +150,8 @@
        mobile_no:'',
        district_id:'',
        status_id:'',
+       pmdc_no:'',
+       clinic:'',
       },
       defaultItem: {
        email:'',
@@ -146,6 +159,8 @@
        mobile_no:'',
        district_id:'',
        status_id:'',
+       pmdc_no:'',
+       clinic:'',
       },
     }),
 
@@ -220,6 +235,8 @@
               mobile_no : this.editedItem.mobile_no,
               district_id : this.editedItem.district_id,
               status_id : this.editedItem.status_id,
+              pmdc_no :this.editedItem.pmdc_no,
+              clinic :this.editedItem.clinic,
           };
         if (this.editedIndex > -1) {
        //   Object.assign(this.data[this.editedIndex], this.editedItem)
