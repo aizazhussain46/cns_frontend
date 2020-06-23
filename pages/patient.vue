@@ -59,6 +59,27 @@
                         label="Status"
                         ></v-select>
                   </v-col>
+                  <v-col cols="12" sm="12" md="12">
+                    <v-select
+                        @change="getOfficers(editedItem.district_id)"
+                        v-model="editedItem.district_id"
+                        :items="district"
+                        item-text="district"
+                        item-value="id"
+                        label="District"
+                        ></v-select>
+                  </v-col>
+
+                    <v-col cols="12" sm="12" md="12">
+                      
+                    <v-select
+                        v-model="editedItem.officer_id"
+                        :items="officers"
+                        item-text="fo"
+                        item-value="fo_id"
+                        label="Officers"
+                        ></v-select>
+                  </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -99,6 +120,8 @@
       dialog: false,
       doctors: [],
       status: [],
+      district: [],
+      officers:[],
       headers: [
         {
           text: 'id',
@@ -147,6 +170,8 @@
        p_mobile_no:'',
        p_address:'',
        status_id:'',
+       district_id:'',
+       officer_id:'',
       },
       defaultItem: {
        user_id:'',
@@ -155,6 +180,8 @@
        p_mobile_no:'',
        p_address:'',
        status_id:'',
+       district_id:'',
+       officer_id:'',
       },
     }),
 
@@ -175,6 +202,16 @@
     },
 
     methods: {
+      getOfficers(d_id){
+
+         this.$axios.post(`officers_by_district/${d_id}`).then(res => {
+
+          this.officers = res.data
+        console.log(res.data)  
+
+        });
+
+      },
       initialize () {
 
       this.$axios.get('patient').then(res => {
@@ -193,6 +230,10 @@
           
           this.status = res.data
         });
+        this.$axios.get('district').then(res => {
+          
+          this.district = res.data
+        });
 
       },
 
@@ -200,6 +241,7 @@
         this.editedIndex = this.data.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
+
       },
 
       deleteItem (item) {
@@ -231,6 +273,8 @@
               p_mobile_no : this.editedItem.p_mobile_no,
               p_address : this.editedItem.p_address,
               status_id : this.editedItem.status_id,
+              district_id : this.editedItem.district_id,
+              field_officer_id:this.editedItem.officer_id,
           };
         if (this.editedIndex > -1) {
        //   Object.assign(this.data[this.editedIndex], this.editedItem)

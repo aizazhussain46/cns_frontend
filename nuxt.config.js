@@ -44,7 +44,8 @@ module.exports = {
   '@nuxtjs/auth'
 ],
 axios: {
-         baseURL: 'http://localhost/case-notification/public/api/'
+        //  baseURL: 'http://localhost/case-notification/public/api/'
+         baseURL: 'http://tbclient.orangeroomdigital.com/public/api/'
 },
 
 auth: {
