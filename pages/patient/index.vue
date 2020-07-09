@@ -1,4 +1,5 @@
 <template>
+
   <v-data-table
     :headers="headers"
     :items="data"
@@ -16,7 +17,7 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+            <v-btn color="primary" dark class="mb-2" v-on="on">New Item   </v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -94,6 +95,8 @@
       </v-toolbar>
     </template>
     <template v-slot:item.actions="{ item }">
+
+
       <v-icon
         small
         class="mr-2"
@@ -101,6 +104,10 @@
       >
         mdi-pencil
       </v-icon>
+
+    
+
+
       <v-icon
         small
         @click="deleteItem(item)"
@@ -108,10 +115,20 @@
         mdi-delete
       </v-icon>
     </template>
+
+     <template v-slot:item.followup="{ item }">
+<v-card   :to="'/patient/' + item.id" :hover="false" flat>
+
+ <v-icon class="mx-0 px-0" small>mdi-eye</v-icon>
+</v-card>
+   
+
+    </template>
     <template v-slot:no-data>
       <v-btn color="primary" @click="initialize">Reset</v-btn>
     </template>
   </v-data-table>
+  
 </template>
 
 <script>
@@ -158,6 +175,7 @@
           sortable: true,
           value: 'status',
         },
+        { text: 'follow', value: 'followup', sortable: false },
         { text: 'Actions', value: 'actions', sortable: false },
 
       ],
@@ -306,3 +324,8 @@
     },
   }
 </script>
+<style>
+.theme--light.v-card{
+  background-color:none;
+}
+</style>

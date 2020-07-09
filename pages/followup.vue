@@ -28,33 +28,38 @@
           value: 'id',
         },
         {
-          text: 'Field Officer',
+          text: 'Patient Name',
           sortable: true,
-          value: 'field officer',
+          value: 'p_name',
         },
         {
-          text: 'Patient',
-          sortable: true,
-          value: 'patient',
-        },
-        {
-          text: 'Visit',
+          text: 'CNIC No',
           sortable: false,
-          value: 'visits',
+          value: 'p_cnic',
+        },
+        {
+          text: 'Mobile No',
+          sortable: true,
+          value: 'p_mobile_no',
+        },
+        {
+          text: 'Status',
+          sortable: true,
+          value: 'status',
         },
         {
           text: 'Date',
           sortable: false,
           value: 'created_at',
         },
-        
 
       ],
       data: [],
       defaultItem: {
-       field_officer_id:'',
-       patient:'',
-       visits:'',
+       p_name:'',
+       p_cnic:'',
+       p_mobile_no:'',
+       status:'',
        created_at:'',
       },
     }),
@@ -78,9 +83,9 @@
     methods: {
       initialize () {
 
-      this.$axios.get('followup').then(res => {
+      this.$axios.get('patient').then(res => {
 
-          this.data = res.data.data 
+          this.data = res.data
 
         });
 
