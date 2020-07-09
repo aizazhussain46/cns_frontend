@@ -15,9 +15,9 @@
         ></v-divider>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
-          <template v-slot:activator="{ on }">
+          <!-- <template v-slot:activator="{ on }">
             <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
-          </template>
+          </template> -->
           <v-card>
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
@@ -51,12 +51,12 @@
       >
         mdi-pencil
       </v-icon>
-      <v-icon
+      <!-- <v-icon
         small
         @click="deleteItem(item)"
       >
         mdi-delete
-      </v-icon>
+      </v-icon> -->
     </template>
     <template v-slot:no-data>
       <v-btn color="primary" @click="initialize">Reset</v-btn>
