@@ -121,7 +121,7 @@
       <v-expansion-panel v-for="(f,i) in data.followup" :key="i">
         <v-expansion-panel-header>{{ f.visits }} followup</v-expansion-panel-header>
         <v-expansion-panel-content>
-          <h3 class="mt-5">Investigation</h3>
+          <h3 style="margin: 15px;">Investigation</h3>
           <v-simple-table
       :dense="dense"
       :fixed-header="fixedHeader"
@@ -154,7 +154,7 @@
       </template>
     </v-simple-table>
 
-    <h3 class="mt-5">Treatment</h3>
+    <h3  style="margin: 15px;">Treatment</h3>
     <v-simple-table
       :dense="dense"
       :fixed-header="fixedHeader"
