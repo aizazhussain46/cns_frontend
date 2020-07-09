@@ -8,7 +8,7 @@
       multiple
     >
       <v-expansion-panel>
-        <v-expansion-panel-header class="teal white--text">Diagnosis</v-expansion-panel-header>
+        <v-expansion-panel-header>Diagnosis</v-expansion-panel-header>
         <v-expansion-panel-content>
            <v-simple-table
       :dense="dense"
@@ -119,7 +119,7 @@
 
 
       <v-expansion-panel v-for="(f,i) in data.followup" :key="i">
-        <v-expansion-panel-header class="teal white--text">{{ f.visits }} followup</v-expansion-panel-header>
+        <v-expansion-panel-header>{{ f.visits }} followup</v-expansion-panel-header>
         <v-expansion-panel-content>
           <h3 class="mt-5">Investigation</h3>
           <v-simple-table
